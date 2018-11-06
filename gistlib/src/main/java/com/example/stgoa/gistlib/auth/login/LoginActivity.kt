@@ -1,5 +1,7 @@
 package com.example.stgoa.gistlib.auth.login
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -15,6 +17,9 @@ import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
 class LoginActivity : DaggerAppCompatActivity() {
+
+    //TODO inject this a config
+    private val INTENT_URI_STRING = "example://mygistfeed"
 
     @Inject
     lateinit var viewModel: LoginViewModel
@@ -40,7 +45,7 @@ class LoginActivity : DaggerAppCompatActivity() {
     }
 
     private fun onLoginSuccess() {
-        finish()
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(INTENT_URI_STRING)))
     }
 
     private fun onLoginFails() {
