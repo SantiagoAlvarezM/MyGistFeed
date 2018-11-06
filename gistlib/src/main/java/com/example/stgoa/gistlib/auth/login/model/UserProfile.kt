@@ -5,6 +5,7 @@ import com.example.stgoa.gistlib.auth.services.GithubConfig.KEY_AUTHORIZATION_RE
 import com.example.stgoa.gistlib.auth.services.GithubConfig.KEY_USER_RESPONSE
 import com.example.stgoa.gistlib.auth.services.model.AuthorizationResponse
 import com.example.stgoa.gistlib.auth.services.model.UserResponse
+import com.example.stgoa.gistlib.di.scopes.ActivityScoped
 import com.google.gson.Gson
 import javax.inject.Inject
 

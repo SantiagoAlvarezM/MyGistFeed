@@ -9,9 +9,7 @@ import com.example.stgoa.gistlib.auth.services.GithubConfig.GITHUB_CLIENT_SECRET
 import com.example.stgoa.gistlib.auth.services.GithubConfig.GITHUB_REQUEST_NOTE
 import com.example.stgoa.gistlib.auth.services.GithubConfig.KEY_AUTHORIZATION_RESPONSE
 import com.example.stgoa.gistlib.auth.services.GithubConfig.KEY_BASIC_TOKEN
-import com.example.stgoa.gistlib.auth.services.GithubConfig.KEY_OAUTH_TOKEN
 import com.example.stgoa.gistlib.auth.services.GithubConfig.KEY_USER_RESPONSE
-import com.example.stgoa.gistlib.auth.services.GithubConfig.OAUTH_TOKEN_PREFIX
 import com.example.stgoa.gistlib.auth.services.model.AuthorizationRequest
 import com.example.stgoa.gistlib.auth.services.model.AuthorizationResponse
 import com.example.stgoa.gistlib.auth.services.model.UserResponse
@@ -54,7 +52,6 @@ class LoginControllerImpl @Inject constructor(
 
     private fun saveResponse(resource: Resource<AuthorizationResponse>) {
         if (resource.status == Status.SUCCESS) {
-            preferences.edit { putString(KEY_OAUTH_TOKEN, OAUTH_TOKEN_PREFIX.plus(resource.data?.token)) }
             preferences.edit { putString(KEY_AUTHORIZATION_RESPONSE, Gson().toJson(resource.data)) }
         }
     }

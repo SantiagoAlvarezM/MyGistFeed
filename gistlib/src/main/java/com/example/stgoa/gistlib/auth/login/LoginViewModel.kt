@@ -18,7 +18,9 @@ class LoginViewModel @Inject constructor(private val controller: LoginController
     fun doBasicLogin(username: String, password: String) {
         disposable.add(
             controller.getAuthorization(username, password)
-                .concatWith { controller.getUser() }
+                .flatMap {
+                    return@flatMap controller.getUser()
+                }
                 .doAfterTerminate { manageViewSubject.onNext(LoginUIModel.ShowProgress(false)) }
                 .subscribe({ manageViewSubject.onNext(LoginUIModel.LoginSuccess) }
                     , { manageViewSubject.onNext(LoginUIModel.LoginFails(it)) })

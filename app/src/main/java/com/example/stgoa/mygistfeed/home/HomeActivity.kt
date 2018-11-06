@@ -60,6 +60,11 @@ class HomeActivity : DaggerAppCompatActivity(), UserInteractionListener {
         super.onSaveInstanceState(outState)
     }
 
+    override fun onResume() {
+        super.onResume()
+        supportInvalidateOptionsMenu()
+    }
+
     override fun onDestroy() {
         uiDisposable.disposeSecure()
         super.onDestroy()
@@ -86,6 +91,7 @@ class HomeActivity : DaggerAppCompatActivity(), UserInteractionListener {
             R.id.action_login -> {
                 if (viewModel.getUser().authenticated) {
                     viewModel.getUser().clear()
+                    supportInvalidateOptionsMenu()
                     //TODO delete user in API refactor this
                 } else {
                     startActivity(Intent(this, LoginActivity::class.java))

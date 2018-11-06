@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 interface GistApiService {
 
-    @GET("gists")
+    @GET("gists/public")
     fun getPublicGists(@Query("since") since: String): Single<Response<List<GistsResponse>>>
 
     @GET("users/{username}/gists")

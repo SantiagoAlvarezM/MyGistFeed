@@ -41,6 +41,7 @@ class GistsViewModel @Inject constructor(
                         it
                     }
                 }
+                .doOnSubscribe { viewModelActionsSubject.onNext(Resource.loading(null)) }
                 .subscribe({
                     viewModelActionsSubject.onNext(it)
                 }, {
@@ -53,6 +54,7 @@ class GistsViewModel @Inject constructor(
         disposable.add(
             gistController.getGist(gistId)
                 .map { it.toItem() }
+                .doOnSubscribe { viewModelActionsSubject.onNext(Resource.loading(null)) }
                 .subscribe({ viewModelActionsSubject.onNext(Resource.success(it)) },
                     {
                         viewModelActionsSubject.onNext(Resource.error(it.message.orEmpty(), null))

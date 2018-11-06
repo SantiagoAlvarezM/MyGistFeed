@@ -27,7 +27,6 @@ object AuthModule {
 
     @Provides
     @JvmStatic
-    @Reusable
     fun provideUserProfile(preferences: SharedPreferences): UserProfile {
         return UserProfile(preferences)
     }
