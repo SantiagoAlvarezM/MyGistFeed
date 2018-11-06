@@ -1,10 +1,6 @@
 # MyGistFeed
 Demo app that wraps some features of the Github Gits API
 
-![Screenshot](MyGistFeed/blob/master/screenshots/Screenshot_1541506852.png)
-
-![Screenshot](MyGistFeed/blob/master/screenshots/Screenshot_1541506884.png)
-
 KNOW ISSUES
 1. After logout, resources are not fully cleared, this causes that Login action menu is not updated or have a weird behavior
 2. No deterministic - moving through Home tabs recyclerView shows a dataset that doesn't correspond to current category
