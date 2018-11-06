@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.example.stgoa.gistlib.common.Status"/>
+        <variable
+                name="resource"
+                type="com.example.stgoa.gistlib.common.Resource"/>
+    </data>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".detail.DetailItemFragment">
+
+        <ProgressBar android:layout_width="match_parent"
+                     android:layout_height="4dp"
+                     android:layout_gravity="top"
+                     android:visibility="@{resource.status == Status.LOADING ? View.VISIBLE : View.GONE}"
+                     style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+                     android:indeterminate="true"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:gravity="center"
+                  android:visibility="@{resource.status == Status.ERROR ? View.VISIBLE : View.GONE}"
+                  android:text="@{resource.message}"
+                  tools:text="Intenta luego :("
+                  android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+
+        <io.github.kbiakov.codeview.CodeView
+                android:id="@+id/fileCodeView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="@{resource.status == Status.SUCCESS ? View.VISIBLE : View.GONE}"
+                app:code="@{resource}"/>
+
+    </FrameLayout>
+
+</layout>

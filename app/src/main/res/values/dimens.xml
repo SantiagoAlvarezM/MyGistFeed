@@ -1,0 +1,15 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="view_vertical_spacing">8dp</dimen>
+    <dimen name="view_horizontal_spacing">8dp</dimen>
+    <dimen name="small_padding">4dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="zero_dimen">0dp</dimen>
+    <dimen name="detail_backdrop_height">256dp</dimen>
+    <dimen name="app_bar_menu_size">48dp</dimen>
+    <dimen name="menu_action_item_size">24dp</dimen>
+    <dimen name="menu_item_ripple_size">28dp</dimen>
+
+</resources>

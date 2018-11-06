@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Gist lib</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Error -->
+    <string name="general_error">There is an error.</string>
+
+    <!-- Login -->
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+</resources>

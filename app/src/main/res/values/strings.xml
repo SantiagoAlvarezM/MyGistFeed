@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">My Gist Feed</string>
+
+    <!-- Error -->
+    <string name="error_401">You must sig in first</string>
+
+    <!-- Menu -->
+    <string name="title_sigin">Sig in</string>
+    <string name="title_logout">Log ut</string>
+
+    <!-- Home -->
+    <string name="title_activity_home">HomeActivity</string>
+    <string-array name="home_tabs">
+        <item>@string/tab_public</item>
+        <item>@string/tab_private</item>
+        <item>@string/tab_starred</item>
+    </string-array>
+    <string name="tab_public">Public</string>
+    <string name="tab_private">My Gists</string>
+    <string name="tab_starred">Starred</string>
+
+    <!-- Detail -->
+    <string name="title_activity_detail">DetailActivity</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.example.stgoa.gistlib.common.Status"/>
+        <import type="android.view.View"/>
+        <variable
+                name="resource"
+                type="com.example.stgoa.gistlib.common.Resource"/>
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshGists"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:setRefreshing="@{resource}">
+
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="match_parent">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                      android:layout_gravity="center"
+                      android:drawableTop="@drawable/ic_mark_light"
+                      android:text="@{resource.message}"
+                      android:visibility="@{resource.status == Status.ERROR ? View.VISIBLE : View.GONE}"
+                      tools:text="There is an error"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewGists"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layoutAnimation="@anim/layout_animation_from_bottom"
+                    android:visibility="@{resource.status == Status.SUCCESS ? View.VISIBLE : View.GONE}"
+                    tools:context="com.example.stgoa.mygistfeed.home.HomeFragment"
+                    tools:listitem="@layout/gist_item"/>
+        </FrameLayout>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
